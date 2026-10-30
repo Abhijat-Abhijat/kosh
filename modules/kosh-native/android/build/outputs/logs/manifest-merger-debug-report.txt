@@ -1,0 +1,40 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:1:1-18:12
+INJECTED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:1:1-18:12
+	package
+		INJECTED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:2:3-49
+	xmlns:android
+		ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.READ_SMS
+ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:5:3-65
+	android:name
+		ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:5:20-62
+uses-permission#android.permission.PACKAGE_USAGE_STATS
+ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:7:3-9:43
+	tools:ignore
+		ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:9:5-40
+	android:name
+		ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:8:5-58
+queries
+ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:12:3-17:13
+intent#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:13:5-16:14
+action#android.intent.action.MAIN
+ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:14:7-59
+	android:name
+		ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:14:15-56
+category#android.intent.category.LAUNCHER
+ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:15:7-67
+	android:name
+		ADDED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:15:17-64
+uses-sdk
+INJECTED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml
+INJECTED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml
