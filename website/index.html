@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kosh: your money, kept. Open-source expense tracker for Android</title>
+  <meta name="description" content="Kosh is a free, open-source money app for Android. It reads bank and card SMS on your phone to log spending, tracks FDs, RDs, stocks, mutual funds, gold and LIC, reminds you of dues and flags subscriptions you never open. No account. Your data never leaves your phone.">
+  <meta name="theme-color" content="#c3c6b0">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="media/favicon.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abhijat-abhijat.github.io/kosh/">
+  <link rel="canonical" href="https://abhijat-abhijat.github.io/kosh/">
+  <meta property="og:title" content="Kosh: your money, kept">
+  <meta property="og:description" content="Open-source expense tracker for Android. Reads bank SMS on your phone. Nothing leaves it.">
+  <meta property="og:image" content="https://abhijat-abhijat.github.io/kosh/media/og.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Kosh wordmark with the line 'Your money, kept.' beside spending, investment and unused-subscription bands.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kosh: your money, kept">
+  <meta name="twitter:description" content="Open-source expense tracker for Android. Reads bank SMS on your phone. Nothing leaves it.">
+  <meta name="twitter:image" content="https://abhijat-abhijat.github.io/kosh/media/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500&family=Familjen+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<!-- The GitHub repository URL lives only here. Change data-repo to move the site to another repo. -->
+<body data-repo="https://github.com/Abhijat-Abhijat/kosh">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Kosh home"><img src="media/logo-wordmark.svg" alt="kosh" width="142" height="30"></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#privacy">Privacy</a>
+      <a class="nav-link" href="#get">Get it</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="btn btn--sm btn--ghost" href="#get" data-repo-href="">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero band--paper" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="headline"><span class="lead">Your money,</span> kept.</h1>
+        <p class="intro">Kosh reads the SMS your bank already sends you and turns them into a clear record of what you spend, save and owe. It runs entirely on your Android phone. No account, no server, no ads.</p>
+        <div class="hero-actions">
+          <a class="btn btn--solid" href="#get" data-repo-href="/releases/latest">Download the APK <span class="arrow" aria-hidden="true">&darr;</span></a>
+          <a class="btn btn--ghost" href="#get" data-repo-href="">Read the code</a>
+        </div>
+        <p class="hero-meta">Free &middot; MIT licence &middot; Android only &middot; Made for Indian banks and cards</p>
+      </div>
+      <div class="hero-phone">
+        <div class="phone"><img src="media/screen-home.webp" width="400" height="866" alt="Kosh home screen: ₹1,84,320 across two savings accounts and cash, ₹62,581 spent in October, ₹14,58,196 invested, and an orange band showing ₹27,239 due this week."></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon" role="list" aria-label="What the home screen shows">
+    <div class="band--deep" role="listitem">
+      <p class="label">Spent in October</p>
+      <p class="num">₹62,581<span class="dec">.0</span></p>
+    </div>
+    <div class="band--forest" role="listitem">
+      <p class="label">Invested &middot; FD, RD, stocks, gold, LIC</p>
+      <p class="num">₹14,58,196<span class="dec">.0</span></p>
+    </div>
+    <div class="band--alert" role="listitem">
+      <p class="label">On subscriptions you don&rsquo;t open</p>
+      <p class="num">₹2,647<span class="dec">.0</span>/mo</p>
+    </div>
+  </div>
+
+  <section class="band band--backdrop" aria-labelledby="screens-title">
+    <div class="wrap">
+      <div class="screens-head">
+        <h2 id="screens-title" class="headline headline--md"><span class="lead">One app,</span> five screens that matter.</h2>
+        <p>Spending, savings, dues and subscriptions, each on a single flat page. Numbers first. Nothing to set up beyond your accounts.</p>
+      </div>
+      <ul class="screens">
+        <li><figure><div class="phone"><img src="media/screen-transactions.webp" width="400" height="866" loading="lazy" alt="Transactions list with Swiggy, Cult.fit, Uber, BESCOM Electricity, BigBasket, Netflix and Amazon, each with amount, category and date."></div><figcaption>Transactions</figcaption></figure></li>
+        <li><figure><div class="phone"><img src="media/screen-investments.webp" width="400" height="866" loading="lazy" alt="Savings and investments screen: ₹14,52,404 total value, a line chart of allocation, and FDs and RDs maturing in the next 90 days."></div><figcaption>Investments</figcaption></figure></li>
+        <li><figure><div class="phone"><img src="media/screen-pending.webp" width="400" height="866" loading="lazy" alt="Pending payments: ₹79,469 to pay, an overdue BESCOM bill, and upcoming card bill, gym subscription and RD instalment."></div><figcaption>Pending</figcaption></figure></li>
+        <li><figure><div class="phone"><img src="media/screen-subscriptions.webp" width="400" height="866" loading="lazy" alt="Subscriptions screen: ₹3,023 a month across 4 active, with ₹2,647 a month on things not used: Cult.fit Elite, Netflix and Tinder Gold."></div><figcaption>Subscriptions</figcaption></figure></li>
+        <li><figure><div class="phone"><img src="media/screen-accounts.webp" width="400" height="866" loading="lazy" alt="Accounts and cards: HDFC and SBI savings balances, and credit cards with outstanding amounts and how much of the limit is used."></div><figcaption>Accounts</figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band--ink on-dark" aria-labelledby="video-title">
+    <div class="wrap video-grid">
+      <div>
+        <p class="label">Demo &middot; 78 seconds</p>
+        <h2 id="video-title" class="headline headline--md"><span class="lead">Watch it</span> work first.</h2>
+        <p style="margin-top:24px;max-width:28em">A walk through the home screen, transactions, investments, subscriptions, pending payments and accounts, using sample data.</p>
+      </div>
+      <video controls preload="none" playsinline muted poster="media/demo-poster.jpg" width="1280" height="960">
+        <source src="media/kosh-demo.mp4" type="video/mp4">
+        Your browser can&rsquo;t play this video. <a href="media/kosh-demo.mp4">Download the demo (MP4, 2&nbsp;MB)</a>.
+      </video>
+    </div>
+  </section>
+
+  <div id="features">
+
+    <section class="band band--deep on-dark feature" aria-labelledby="f1">
+      <div class="wrap">
+        <div class="feature-copy">
+          <p class="count">01 / 05</p>
+          <h2 id="f1" class="headline headline--md"><span class="lead">Your bank already texts you.</span> Kosh reads it.</h2>
+          <p>Kosh goes through the debit and card SMS in your inbox and picks out the amount, the merchant, the account and the date, and files it under a category. Parsing happens on the phone. Messages that aren&rsquo;t transactions are ignored.</p>
+          <p>Paid in cash? Add it by hand in a few taps.</p>
+          <ul class="facts">
+            <li><span>Sources</span><span>Bank and card SMS in your inbox</span></li>
+            <li><span>Duplicates</span><span>Skipped, so re-syncing is safe</span></li>
+            <li><span>Categories</span><span>Food, transport, bills and more, editable</span></li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="media/screen-transactions.webp" width="400" height="866" loading="lazy" alt="Transactions logged from SMS, each with merchant, category, amount and time."></div></div>
+      </div>
+    </section>
+
+    <section class="band band--goal on-goal feature flip" aria-labelledby="f2">
+      <div class="wrap">
+        <div class="feature-copy">
+          <p class="count">02 / 05</p>
+          <h2 id="f2" class="headline headline--md"><span class="lead">Savings and investments,</span> worked out properly.</h2>
+          <p>FDs and RDs grow with bank-style quarterly compounding, so the value you see today and at maturity matches your passbook. Stocks, mutual funds and digital gold refresh their prices when you ask. LIC premiums and PPF sit alongside.</p>
+          <ul class="facts">
+            <li><span>Fixed and recurring deposits</span><span>Interest, maturity date, next instalment</span></li>
+            <li><span>Stocks, mutual funds, gold</span><span>Live price, gain or loss</span></li>
+            <li><span>LIC and PPF</span><span>Premiums and balance in one list</span></li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="media/screen-savings.webp" width="400" height="866" loading="lazy" alt="Investment bands: recurring deposit ₹1,16,759, stocks ₹2,12,800, mutual funds ₹1,19,416, digital gold ₹85,983, LIC ₹1,92,000 and PPF ₹2,36,400."></div></div>
+      </div>
+    </section>
+
+    <section class="band band--paper feature" aria-labelledby="f3">
+      <div class="wrap">
+        <div class="feature-copy">
+          <p class="count">03 / 05</p>
+          <h2 id="f3" class="headline headline--md"><span class="lead">Pay on time,</span> without remembering.</h2>
+          <p>Card bills, rent, insurance premiums and RD instalments go into one list, sorted by when they&rsquo;re due. Kosh suggests upcoming payments from your cards, policies and subscriptions, so most of the list fills itself.</p>
+          <p>You get a reminder two days before and on the due date. Every few days, at a random time, Kosh also nudges you to open it and check in. Nothing more.</p>
+          <ul class="facts">
+            <li><span>Reminders</span><span>2 days before and on the day, 9 am</span></li>
+            <li><span>Overdue</span><span>Shown in orange until you mark it paid</span></li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="media/screen-pending.webp" width="400" height="866" loading="lazy" alt="Pending payments with an overdue electricity bill and a list of payments due this week."></div></div>
+      </div>
+    </section>
+
+    <section class="band band--alert on-alert feature flip" aria-labelledby="f4">
+      <div class="wrap">
+        <div class="feature-copy">
+          <p class="count">04 / 05</p>
+          <h2 id="f4" class="headline headline--md"><span class="lead">The gym you stopped going to.</span> The app you never open.</h2>
+          <p class="num bignum">₹2,647<span class="dec">.0</span>/mo</p>
+          <p>Link a subscription to its app, say Netflix or a dating app, and Kosh checks whether you&rsquo;ve opened it. Not used in 30 days? It&rsquo;s flagged, with the money spent since. For things without an app, like a gym, Kosh asks you now and then whether you still use it.</p>
+          <ul class="facts">
+            <li><span>Needs</span><span>Usage access, only for apps you link</span></li>
+            <li><span>Weekly</span><span>A short digest of what went unused</span></li>
+          </ul>
+        </div>
+        <div class="feature-media"><div class="phone"><img src="media/screen-subscriptions.webp" width="400" height="866" loading="lazy" alt="Unused subscriptions: Cult.fit Elite with no check-in in 48 days, Netflix not opened in 33 days, Tinder Gold not opened in 76 days, each with money wasted."></div></div>
+      </div>
+    </section>
+
+    <section class="band band--forest on-dark feature" aria-labelledby="f5">
+      <div class="wrap">
+        <div class="feature-copy">
+          <p class="count">05 / 05</p>
+          <h2 id="f5" class="headline headline--md"><span class="lead">Locked with</span> your fingerprint or face.</h2>
+          <p>Kosh opens only after your fingerprint, face or device PIN. There&rsquo;s no account and no password to forget or leak.</p>
+        </div>
+        <div class="feature-media">
+          <ul class="lock-tiles" aria-label="Ways to unlock">
+            <li><span class="tile" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 26c1-3 1-6 1-9a7 7 0 0 1 14 0c0 4 0 8-2 11"/><path d="M15 29c1.5-3 2-7 2-12a1 1 0 0 1 2 0c0 5-.5 9-2 12"/><path d="M6 20c0-2 .2-4 .5-5A12 12 0 0 1 29 13"/></svg></span>Fingerprint</li>
+            <li><span class="tile" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11V4h7M25 4h7v7M32 25v7h-7M11 32H4v-7"/><path d="M13 14v2M23 14v2M18 15v6h-2M13 24c3 2 7 2 10 0"/></svg></span>Face unlock</li>
+            <li><span class="tile" aria-hidden="true"><svg viewBox="0 0 36 36" fill="currentColor"><circle cx="8" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="28" cy="18" r="3"/><rect x="4" y="27" width="28" height="2"/></svg></span>Device PIN or pattern</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section id="privacy" class="band band--ink on-dark" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <p class="label">Privacy</p>
+      <h2 id="privacy-title" class="headline"><span class="lead">Your data</span> never leaves your phone.</h2>
+      <div class="privacy-grid">
+        <div><h3>Read on the phone</h3><p>SMS are parsed on your device. The text is never uploaded anywhere.</p></div>
+        <div><h3>Stored on the phone</h3><p>Everything sits in a local database in Kosh&rsquo;s private storage. There is no Kosh server.</p></div>
+        <div><h3>No account, no tracking</h3><p>No sign-up, no ads, no analytics, no third-party SDKs watching what you do.</p></div>
+        <div><h3>Open source</h3><p>MIT licensed. Read every line, build it yourself, or fork it.</p></div>
+      </div>
+      <p class="privacy-note">Kosh goes online for only two things: optional price lookups for stocks, mutual funds and gold (Yahoo Finance and mfapi.in, sent only the symbol or scheme code), and crash reports, only if whoever built your copy turned them on. Backups are a file you export and keep where you like. <a href="privacy.html">Read the privacy policy</a>.</p>
+    </div>
+  </section>
+
+  <div class="linebars-strip" aria-hidden="true"><div class="wrap"><div class="linebars" data-count="96"></div></div></div>
+
+  <section id="get" class="band band--paper" aria-labelledby="get-title">
+    <div class="wrap">
+      <h2 id="get-title" class="headline headline--md"><span class="lead">Four steps,</span> about five minutes.</h2>
+      <ol class="steps">
+        <li><span class="num">01</span><h3>Download the APK</h3><p>Get the latest APK from the project&rsquo;s GitHub Releases page, on your phone.</p></li>
+        <li><span class="num">02</span><h3>Install it</h3><p>Allow your browser or Files app to install unknown apps. On Android 13 and later, open Kosh&rsquo;s App info, tap the &#8942; menu and choose <em>Allow restricted settings</em> so it can read SMS.</p></li>
+        <li><span class="num">03</span><h3>Open Kosh, turn on the lock</h3><p>Grant SMS access, then switch on the fingerprint, face or PIN lock.</p></li>
+        <li><span class="num">04</span><h3>Add your accounts</h3><p>Add your bank accounts and cards. Kosh matches incoming SMS to them and starts logging.</p></li>
+      </ol>
+      <div class="steps-cta">
+        <a class="btn btn--solid" href="#get" data-repo-href="/releases/latest">Latest release <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--ghost" href="#get" data-repo-href="#readme">Build it yourself</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="band band--backdrop faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <h2 id="faq-title" class="headline headline--md"><span class="lead">Questions,</span> answered.</h2>
+      <div>
+        <details>
+          <summary>Why isn&rsquo;t Kosh on the Play Store?</summary>
+          <div><p>Google Play only lets a few kinds of apps, such as your default SMS app, read your messages. Reading bank SMS is the core of Kosh, so it&rsquo;s shared as an APK on GitHub instead. You can check the code and build the same APK yourself.</p></div>
+        </details>
+        <details>
+          <summary>Does it work on iPhone?</summary>
+          <div><p>No. iOS doesn&rsquo;t let apps read your SMS inbox, so Kosh is Android only.</p></div>
+        </details>
+        <details>
+          <summary>Is it free?</summary>
+          <div><p>Yes. Kosh is open source under the MIT licence. There&rsquo;s no paid tier, no ads and nothing to subscribe to.</p></div>
+        </details>
+        <details>
+          <summary>What data does Kosh store, and where?</summary>
+          <div><p>Your accounts, cards, transactions (including the text of the bank SMS each one came from), investments, pending payments and subscriptions. All of it is kept in a local database inside Kosh&rsquo;s private storage on your phone. Nobody else, including the people who make Kosh, receives any of it.</p></div>
+        </details>
+        <details>
+          <summary>What happens if I lose my phone?</summary>
+          <div><p>Without a backup, your Kosh data is gone with it. There&rsquo;s no cloud copy and no sync between devices. Use <strong>Settings &rarr; Export backup</strong> now and then and keep the file somewhere safe, such as Google Drive or a computer. On a new phone, use <strong>Restore from backup</strong>. The backup is a plain JSON file, so store it as carefully as a bank statement.</p></div>
+        </details>
+        <details>
+          <summary>Which banks does it understand?</summary>
+          <div><p>Kosh handles the common SMS formats used by Indian banks and card issuers for debits, credits and card spends. If a message from your bank is missed, open an issue on GitHub with the amounts and account numbers removed.</p></div>
+        </details>
+        <details>
+          <summary>How do I delete everything?</summary>
+          <div><p>Use <strong>Settings &rarr; Erase all data</strong>, or just uninstall the app. Either removes everything Kosh stored.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <div>
+      <img src="media/logo-wordmark-light.svg" alt="kosh" width="160" height="34">
+      <small>Open-source personal finance for Android. MIT licence.</small>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#get" data-repo-href="">GitHub</a></li>
+        <li><a href="#get" data-repo-href="/releases">Releases</a></li>
+        <li><a href="#get" data-repo-href="/issues">Report an issue</a></li>
+        <li><a href="#get" data-repo-href="/blob/main/LICENSE">Licence</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

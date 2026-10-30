@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/Abhijat-Abhijat/kosh/security/advisories/new
+    about: Please report security issues privately, not as a public issue.
+  - name: Install guide and troubleshooting
+    url: https://github.com/Abhijat-Abhijat/kosh/blob/main/docs/INSTALL.md
+    about: Check here first for permission, SMS and reminder problems.

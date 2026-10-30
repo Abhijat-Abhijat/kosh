@@ -1,0 +1,131 @@
+name: Release APK
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  # Same typecheck, lint and tests as ci.yml; no APK is published if they fail.
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npx jest --ci --forceExit
+
+  android:
+    needs: check
+    runs-on: ubuntu-latest
+    env:
+      # The @sentry/react-native config plugin uploads source maps during release builds.
+      # Official builds ship without a Sentry DSN, so skip the upload (no auth token needed).
+      SENTRY_DISABLE_AUTO_UPLOAD: "true"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: android-actions/setup-android@v3
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Work out version
+        id: version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="$(node -p "require('./package.json').version")-${GITHUB_SHA::7}"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - run: npm ci
+
+      # The tag is the source of truth for the APK version. versionCode must only ever
+      # grow, so it is derived from the semver numbers: v1.2.3 -> 10203.
+      - name: Stamp version from tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            const v = process.env.VERSION;
+            const [maj, min, pat] = v.split("-")[0].split(".").map(Number);
+            const app = JSON.parse(fs.readFileSync("app.json", "utf8"));
+            app.expo.version = v;
+            app.expo.android.versionCode = maj * 10000 + min * 100 + pat;
+            fs.writeFileSync("app.json", JSON.stringify(app, null, 2));
+            console.log("version", v, "versionCode", app.expo.android.versionCode);
+          '
+
+      # android/ is generated (Continuous Native Generation) and never committed.
+      - run: npx expo prebuild --platform android --no-install
+
+      - name: Build release APK
+        id: build
+        env:
+          KOSH_KEYSTORE_BASE64: ${{ secrets.KOSH_KEYSTORE_BASE64 }}
+          KOSH_KEYSTORE_PASSWORD: ${{ secrets.KOSH_KEYSTORE_PASSWORD }}
+          KOSH_KEY_ALIAS: ${{ secrets.KOSH_KEY_ALIAS }}
+          KOSH_KEY_PASSWORD: ${{ secrets.KOSH_KEY_PASSWORD }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          SIGNING_ARGS=()
+          if [[ -n "$KOSH_KEYSTORE_BASE64" && -n "$KOSH_KEYSTORE_PASSWORD" && -n "$KOSH_KEY_ALIAS" && -n "$KOSH_KEY_PASSWORD" ]]; then
+            KEYSTORE="$RUNNER_TEMP/kosh-release.jks"
+            echo "$KOSH_KEYSTORE_BASE64" | base64 --decode > "$KEYSTORE"
+            # Android Gradle Plugin injected signing properties override the generated
+            # signingConfig, so no app.json or config-plugin change is needed.
+            SIGNING_ARGS=(
+              "-Pandroid.injected.signing.store.file=$KEYSTORE"
+              "-Pandroid.injected.signing.store.password=$KOSH_KEYSTORE_PASSWORD"
+              "-Pandroid.injected.signing.key.alias=$KOSH_KEY_ALIAS"
+              "-Pandroid.injected.signing.key.password=$KOSH_KEY_PASSWORD"
+            )
+            NAME="kosh-$VERSION.apk"
+          else
+            echo "::warning title=Unsigned build::Release signing secrets are not set. Building a debug-signed APK. Do not distribute it as an official release."
+            NAME="kosh-$VERSION-unsigned-debug.apk"
+          fi
+
+          (cd android && ./gradlew assembleRelease --no-daemon "${SIGNING_ARGS[@]}")
+          rm -f "$RUNNER_TEMP/kosh-release.jks"
+
+          mkdir -p dist-apk
+          cp android/app/build/outputs/apk/release/app-release.apk "dist-apk/$NAME"
+          (cd dist-apk && sha256sum "$NAME" > "$NAME.sha256")
+          cat "dist-apk/$NAME.sha256"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kosh-${{ steps.version.outputs.version }}
+          path: dist-apk/*
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist-apk/*
+          generate_release_notes: true
+          prerelease: ${{ contains(github.ref_name, '-') }}

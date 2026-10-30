@@ -1,0 +1,9 @@
+expo.modules.koshnative.kosh-native-pngs-0 D:\finance_management\mobile\modules\kosh-native\android\build\generated\res\pngs\debug
+expo.modules.koshnative.kosh-native-updated_navigation_xml-1 D:\finance_management\mobile\modules\kosh-native\android\build\generated\updated_navigation_xml\debug
+expo.modules.koshnative.kosh-native-mergeDebugResources-2 D:\finance_management\mobile\modules\kosh-native\android\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+expo.modules.koshnative.kosh-native-mergeDebugResources-3 D:\finance_management\mobile\modules\kosh-native\android\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+expo.modules.koshnative.kosh-native-debug-4 D:\finance_management\mobile\modules\kosh-native\android\build\intermediates\merged_res\debug\mergeDebugResources
+expo.modules.koshnative.kosh-native-debug-5 D:\finance_management\mobile\modules\kosh-native\android\build\intermediates\packaged_res\debug\packageDebugResources
+expo.modules.koshnative.kosh-native-debug-6 D:\finance_management\mobile\modules\kosh-native\android\src\debug\res
+expo.modules.koshnative.kosh-native-main-7 D:\finance_management\mobile\modules\kosh-native\android\src\main\res
+gradleHome-0 C:\Users\abhij\.gradle

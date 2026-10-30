@@ -1,0 +1,37 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="expo.modules.koshnative" >
+5
+6    <uses-sdk android:minSdkVersion="24" />
+6-->INJECTED
+6-->INJECTED
+7
+8    <!-- Bank / card SMS are read on-device to capture expenses. -->
+9    <uses-permission android:name="android.permission.READ_SMS" />
+9-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:5:3-65
+9-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:5:20-62
+10    <!-- Granted by the user in system settings; used for subscription usage tracking. -->
+11    <uses-permission
+11-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:7:3-9:43
+12        android:name="android.permission.PACKAGE_USAGE_STATS"
+12-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:8:5-58
+13        tools:ignore="ProtectedPermissions" />
+13-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:9:5-40
+14
+15    <!-- Android 11+ package visibility: list launchable apps. -->
+16    <queries>
+16-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:12:3-17:13
+17        <intent>
+17-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:13:5-16:14
+18            <action android:name="android.intent.action.MAIN" />
+18-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:14:7-59
+18-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:14:15-56
+19
+20            <category android:name="android.intent.category.LAUNCHER" />
+20-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:15:7-67
+20-->D:\finance_management\mobile\modules\kosh-native\android\src\main\AndroidManifest.xml:15:17-64
+21        </intent>
+22    </queries>
+23
+24</manifest>

@@ -1,0 +1,4 @@
+D:/finance_management/mobile/android/app/.cxx/Debug/4p2n671q/arm64-v8a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
+D:/finance_management/mobile/android/app/.cxx/Debug/4p2n671q/arm64-v8a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+D:/finance_management/mobile/android/app/.cxx/Debug/4p2n671q/arm64-v8a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+D:/finance_management/mobile/android/app/.cxx/Debug/4p2n671q/arm64-v8a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir

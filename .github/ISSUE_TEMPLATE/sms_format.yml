@@ -1,0 +1,68 @@
+name: SMS format request
+description: Kosh doesn't recognise transaction SMS from your bank, card or UPI app
+title: "[SMS] <Bank name>: <type of message>"
+labels: ["sms-format"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Redact before you paste
+        This issue is **public**. Replace every personal detail before submitting:
+        - account / card digits → `XX1234`
+        - names and UPI IDs → `RAVI KUMAR`, `name@okbank`
+        - reference numbers → random digits
+        - amounts and balances → made-up numbers
+
+        **Keep** the bank's exact wording, punctuation and abbreviations (`A/c`, `Avl Bal`, `Info:`). The parser depends on them.
+  - type: input
+    id: bank
+    attributes:
+      label: Bank or card issuer
+      placeholder: "Example Bank"
+    validations:
+      required: true
+  - type: input
+    id: sender
+    attributes:
+      label: SMS sender ID
+      description: The name the SMS comes from, e.g. `VM-EXBANK-S`.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Message type
+      options:
+        - Debit (UPI)
+        - Debit (card purchase)
+        - Debit (net banking / NEFT / IMPS)
+        - ATM withdrawal
+        - Credit / money received
+        - Refund or reversal
+        - Should be ignored (OTP, reminder, promo) but was logged
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Redacted SMS sample
+      description: One message per block. Add more than one if the format varies.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should Kosh read from it?
+      placeholder: |
+        amount: 689.40
+        direction: debit
+        last 4: 1234
+        merchant: DMART AVENUE
+        available balance: 23456.10
+  - type: checkboxes
+    id: redacted
+    attributes:
+      label: Confirmation
+      options:
+        - label: I removed or replaced all personal data (names, account digits, references, real amounts).
+          required: true

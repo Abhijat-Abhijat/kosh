@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy · Kosh</title>
+  <meta name="description" content="Kosh keeps everything on your phone. What the app reads, what it stores, what goes over the network, and how to delete it.">
+  <meta name="theme-color" content="#c3c6b0">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="media/favicon.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Kosh privacy policy">
+  <meta property="og:description" content="Your data never leaves your phone. Here is exactly what Kosh reads and stores.">
+  <meta property="og:image" content="https://abhijat-abhijat.github.io/kosh/media/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://abhijat-abhijat.github.io/kosh/media/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500&family=Familjen+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<!-- The GitHub repository URL lives only here. -->
+<body data-repo="https://github.com/Abhijat-Abhijat/kosh">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Kosh home"><img src="media/logo-wordmark.svg" alt="kosh" width="142" height="30"></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="./#features">Features</a>
+      <a class="nav-link" href="./#get">Get it</a>
+      <a class="nav-link" href="./#faq">FAQ</a>
+      <a class="btn btn--sm btn--ghost" href="./" data-repo-href="">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="band band--paper">
+  <article class="wrap">
+    <div class="prose">
+      <h1 class="headline headline--md"><span class="lead">Privacy policy.</span> Your data stays on your phone.</h1>
+      <p class="updated">Last updated 30 October 2026</p>
+
+      <p>Kosh is an open-source personal finance app for Android. It has no server, no accounts and no sign-up. This page explains, in plain words, what the app reads, what it keeps, and the few times it uses the internet.</p>
+      <p>&ldquo;We&rdquo; means the people who maintain the Kosh project. &ldquo;You&rdquo; means the person using the app on their phone.</p>
+
+      <h2>The short version</h2>
+      <ul>
+        <li>Everything Kosh stores stays in the app&rsquo;s private storage on your phone.</li>
+        <li>We don&rsquo;t receive any of your data. We can&rsquo;t see it, and we have no copy of it.</li>
+        <li>No ads, no analytics, no tracking.</li>
+        <li>You can erase it all at any time.</li>
+      </ul>
+
+      <h2>What the app reads</h2>
+      <p>Each of these needs your permission, and you can turn it off in Android settings.</p>
+      <table>
+        <thead><tr><th scope="col">Permission</th><th scope="col">What Kosh does with it</th></tr></thead>
+        <tbody>
+          <tr><td>SMS</td><td>Reads the messages in your inbox to find bank and card transaction SMS. Matching happens on your phone. Messages that aren&rsquo;t transactions are skipped and not saved.</td></tr>
+          <tr><td>Usage access</td><td>Only for subscriptions you link to an app (for example Netflix). Kosh checks when that app was last opened, to tell you if you&rsquo;re paying for something you don&rsquo;t use. It doesn&rsquo;t look at other apps.</td></tr>
+          <tr><td>Notifications</td><td>Shows reminders for pending payments, a weekly note about unused subscriptions, and an occasional check-in reminder.</td></tr>
+          <tr><td>Fingerprint, face or device PIN</td><td>Used through Android&rsquo;s own lock screen system to open the app. Kosh never sees or stores your fingerprint or face data.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What Kosh stores, and where</h2>
+      <p>Kosh keeps a local database in its private app storage on your phone. Other apps can&rsquo;t read it. It contains:</p>
+      <ul>
+        <li>Accounts and cards you add (names, last four digits, balances, limits).</li>
+        <li>Transactions, including the original text of the bank or card SMS each one was read from.</li>
+        <li>Savings and investments you add: FDs, RDs, stocks, mutual funds, gold, LIC, PPF.</li>
+        <li>Pending payments, subscriptions and your app settings.</li>
+      </ul>
+      <p>None of this is sent to us or to anyone else. There is no sync between devices.</p>
+
+      <h2>Backups</h2>
+      <p><strong>Settings &rarr; Export backup</strong> saves all your Kosh data as a JSON file to a place you choose, such as your Files app or Google Drive. Where it goes, and who can see it there, is up to you. The file is not encrypted, so keep it as safely as a bank statement. <strong>Restore from backup</strong> reads such a file back in.</p>
+      <p>If you lose your phone and have no backup, your Kosh data can&rsquo;t be recovered. We don&rsquo;t have a copy.</p>
+
+      <h2>When Kosh uses the internet</h2>
+      <ul>
+        <li><strong>Price lookups.</strong> When you refresh investment prices, Kosh asks Yahoo Finance (stocks and gold) and mfapi.in (mutual funds) for current prices. The request contains only the ticker symbol or fund scheme code, not your holdings or amounts. Those services see your IP address, as any website does. If you don&rsquo;t hold these investments, no requests are made.</li>
+        <li><strong>Crash reports, only in some builds.</strong> The code can send crash reports to Sentry, but only if the person who built the APK added their own Sentry key (DSN). A crash report contains technical details such as the error and device model, not your transactions. If you build Kosh yourself and leave the key empty, nothing is sent.</li>
+      </ul>
+      <p>Kosh has no ads and no analytics, and it doesn&rsquo;t share data with advertisers or data brokers.</p>
+
+      <h2>Deleting your data</h2>
+      <ul>
+        <li><strong>Settings &rarr; Erase all data</strong> deletes everything Kosh has stored on the phone.</li>
+        <li>Uninstalling Kosh does the same.</li>
+        <li>Backup files you exported are yours. Delete them wherever you saved them.</li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>Kosh is meant for adults managing their own money. It doesn&rsquo;t knowingly collect anything from anyone, child or adult, because it doesn&rsquo;t collect anything at all.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If the app starts handling data differently, we&rsquo;ll update this page and the date at the top, and note the change in the release notes.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or concerns? <a href="./" data-repo-href="/issues">Open an issue on GitHub</a>. Please don&rsquo;t paste real SMS, account numbers or amounts into an issue.</p>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <div>
+      <img src="media/logo-wordmark-light.svg" alt="kosh" width="160" height="34">
+      <small>Open-source personal finance for Android. MIT licence.</small>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="./" data-repo-href="">GitHub</a></li>
+        <li><a href="./" data-repo-href="/blob/main/LICENSE">Licence</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
