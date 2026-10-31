@@ -151,7 +151,7 @@ jobs:
 
       - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: dist-apk/*
           generate_release_notes: true
@@ -160,7 +160,7 @@ jobs:
       # Every push to main gets its own prerelease, so the newest build is always downloadable.
       - name: Publish main build prerelease
         if: github.ref == 'refs/heads/main'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: build-${{ github.run_number }}
           target_commitish: ${{ github.sha }}
