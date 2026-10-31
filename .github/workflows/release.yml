@@ -2,8 +2,15 @@ name: Release APK
 
 on:
   push:
+    branches: [main]
     tags: ["v*"]
+    paths-ignore: ["website/**", "**/*.md"]
   workflow_dispatch:
+
+# A newer push to main cancels the in-flight build; tag builds always finish.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref == 'refs/heads/main' }}
 
 permissions:
   contents: write
@@ -90,6 +97,9 @@ jobs:
           KOSH_KEY_ALIAS: ${{ secrets.KOSH_KEY_ALIAS }}
           KOSH_KEY_PASSWORD: ${{ secrets.KOSH_KEY_PASSWORD }}
           VERSION: ${{ steps.version.outputs.version }}
+        # Two APKs from one build. "dev" keeps every feature (SMS capture, usage tracking)
+        # and is meant for `adb install`; Play Protect blocks sideloading apps that read SMS.
+        # The plain APK drops those permissions so it installs from a browser download.
         run: |
           SIGNING_ARGS=()
           if [[ -n "$KOSH_KEYSTORE_BASE64" && -n "$KOSH_KEYSTORE_PASSWORD" && -n "$KOSH_KEY_ALIAS" && -n "$KOSH_KEY_PASSWORD" ]]; then
@@ -103,19 +113,36 @@ jobs:
               "-Pandroid.injected.signing.key.alias=$KOSH_KEY_ALIAS"
               "-Pandroid.injected.signing.key.password=$KOSH_KEY_PASSWORD"
             )
-            NAME="kosh-$VERSION.apk"
+            SUFFIX=""
           else
             echo "::warning title=Unsigned build::Release signing secrets are not set. Building a debug-signed APK. Do not distribute it as an official release."
-            NAME="kosh-$VERSION-unsigned-debug.apk"
+            SUFFIX="-unsigned-debug"
           fi
 
-          (cd android && ./gradlew assembleRelease --no-daemon "${SIGNING_ARGS[@]}")
-          rm -f "$RUNNER_TEMP/kosh-release.jks"
-
           mkdir -p dist-apk
-          cp android/app/build/outputs/apk/release/app-release.apk "dist-apk/$NAME"
-          (cd dist-apk && sha256sum "$NAME" > "$NAME.sha256")
-          cat "dist-apk/$NAME.sha256"
+          build() {
+            (cd android && ./gradlew assembleRelease --no-daemon "${SIGNING_ARGS[@]}")
+            cp android/app/build/outputs/apk/release/app-release.apk "dist-apk/$1"
+            (cd dist-apk && sha256sum "$1" > "$1.sha256")
+            cat "dist-apk/$1.sha256"
+          }
+
+          build "kosh-$VERSION-dev$SUFFIX.apk"
+
+          node -e '
+            const fs = require("fs");
+            const app = JSON.parse(fs.readFileSync("app.json", "utf8"));
+            app.expo.android.blockedPermissions = [
+              ...(app.expo.android.blockedPermissions ?? []),
+              "android.permission.READ_SMS",
+              "android.permission.PACKAGE_USAGE_STATS",
+            ];
+            fs.writeFileSync("app.json", JSON.stringify(app, null, 2));
+          '
+          npx expo prebuild --platform android --no-install
+          build "kosh-$VERSION$SUFFIX.apk"
+
+          rm -f "$RUNNER_TEMP/kosh-release.jks"
 
       - uses: actions/upload-artifact@v4
         with:
@@ -129,3 +156,15 @@ jobs:
           files: dist-apk/*
           generate_release_notes: true
           prerelease: ${{ contains(github.ref_name, '-') }}
+
+      # Every push to main gets its own prerelease, so the newest build is always downloadable.
+      - name: Publish main build prerelease
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          name: Build ${{ steps.version.outputs.version }}
+          files: dist-apk/*
+          generate_release_notes: true
+          prerelease: true

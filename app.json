@@ -19,7 +19,8 @@
       },
       "predictiveBackGestureEnabled": false,
       "package": "abhijat.kosh_money.kosh",
-      "versionCode": 1
+      "versionCode": 1,
+      "blockedPermissions": ["android.permission.SYSTEM_ALERT_WINDOW"]
     },
     "web": {
       "output": "single",
