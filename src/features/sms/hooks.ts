@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient, type QueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { AppState } from 'react-native';
+import { AppState, Linking } from 'react-native';
 
 import { device, deviceCapabilities } from '@/lib/device';
 import { table } from '@/lib/db/client';
@@ -100,7 +100,13 @@ export function useSmsStatus() {
 export function useRequestSmsPermission() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: () => device.requestSmsPermission(),
+    // Android 15+ blocks SMS for sideloaded apps and stops prompting after one denial, so
+    // fall back to the app's settings page (⋮ > Allow restricted settings, then Permissions > SMS).
+    mutationFn: async () => {
+      const granted = await device.requestSmsPermission();
+      if (!granted) await Linking.openSettings();
+      return granted;
+    },
     onSettled: () => qc.invalidateQueries({ queryKey: smsKeys.status }),
   });
 }
